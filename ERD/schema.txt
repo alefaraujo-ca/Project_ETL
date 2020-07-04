@@ -1,0 +1,74 @@
+player
+-
+player_id PK int
+full_name varchar(40)
+first_name varchar(20)
+last_name varchar(20)
+is_active boolean 
+born_country varchar(30) NULL
+
+team
+-
+team_id PK char(3)
+full_name varchar(30)
+nickname varchar(15)
+city varchar(20)
+state varchar(20)
+year_founded int
+api_team_id int
+
+team_player
+-
+team_id PK CHAR(3) FK >- team.team_id
+player_id PK INT FK >- player.player_id
+season_id PK CHAR(7)
+
+salary
+-
+salary_id PK int
+player_id int FK >- player.player_id
+salary float
+start_season int NULL
+end_season int NULL
+id_team CHAR(3)
+
+player_stats
+-
+player_id PK int FK >- player.player_id
+season_id PK CHAR(7)
+team_id varchar(3)
+PTS FLOAT NULL
+BLK FLOAT NULL
+STL FLOAT NULL
+AST FLOAT NULL
+REB FLOAT NULL
+FT_PCT FLOAT NULL
+FTA FLOAT NULL
+FG3_PCT FLOAT NULL
+FG3A FLOAT NULL
+FG_PCT FLOAT NULL
+FGA FLOAT NULL
+MIN FLOAT NULL
+GP INT NULL
+USG FLOAT NULL
+BPM FLOAT NULL
+VORP FLOAT NULL
+
+
+team_stats
+-
+team_id PK varchar(3) FK >- team.team_id
+season_id PK CHAR(7)
+G INT NULL
+FG_PCT FLOAT NULL
+3P_PCT FLOAT NULL
+FT_PCT FLOAT NULL
+OREB FLOAT NULL
+DREB FLOAT NULL
+PPG FLOAT NULL
+RPG FLOAT NULL
+APG FLOAT NULL
+TO FLOAT NULL
+SPG FLOAT NULL
+BPG FLOAT NULL
+PF FLOAT NULL
